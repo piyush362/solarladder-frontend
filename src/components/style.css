@@ -1,0 +1,30 @@
+/* navbar */
+
+.upper-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: .5px solid rgba(128, 128, 128, 0.306);
+    padding: 0 100px;
+}
+.logo{
+    width: 130px;
+}
+.lower-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: .5px solid rgba(128, 128, 128, 0.306);
+    padding: 8px 100px;
+}
+.lower-nav  a{
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+.active{
+    color: blue;
+}
+
+
+/* navbar end  */
