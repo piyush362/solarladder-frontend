@@ -4,7 +4,7 @@ import DataTable from 'react-data-table-component';
 import axios from 'axios';
 
 const Books = () => {
-    const [pending, setPending] = React.useState(false);
+    // const [pending, setPending] = React.useState(false);
     const [ProductList, setProductList] = useState([]);
 
     const getProduct = async () => {
@@ -87,7 +87,6 @@ const Books = () => {
                 }
                 subHeader
                 pointerOnHover
-                progressPending={pending}
             />
         </div>
     )

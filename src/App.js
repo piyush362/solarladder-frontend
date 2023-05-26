@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
-import Dashboard from './pages/Dashboard'
+// import Dashboard from './pages/Dashboard'
 import NoMatch from './pages/NoMatch'
 import Books from './pages/Books'
 
