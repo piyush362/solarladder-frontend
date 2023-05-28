@@ -1,47 +1,58 @@
 import "./style.css";
 import { NavLink } from "react-router-dom";
 
+import { VscLayoutPanelRight } from 'react-icons/vsc';
+import { GrTask, GrAnalytics } from 'react-icons/gr';
+import { BsArrowBarRight, BsCreditCard2Back, BsFillJournalBookmarkFill } from 'react-icons/bs';
+import { AiOutlineDollarCircle } from 'react-icons/ai';
+import { IoIosGitNetwork, IoMdSettings } from 'react-icons/io';
+import { BiNews } from 'react-icons/bi';
+import { BiLogOut } from 'react-icons/bi';
+
+
+
+
 const dataItem = [
   {
     name: "Project",
-    logo: "",
+    logo: <VscLayoutPanelRight />,
   },
   {
     name: "Task",
-    logo: "",
+    logo: <GrTask />,
   },
   {
     name: "Lead",
-    logo: "",
+    logo: <BsArrowBarRight />,
   },
   {
     name: "Payments",
-    logo: "",
+    logo: <AiOutlineDollarCircle />,
   },
   {
     name: "Monitring",
-    logo: "",
+    logo: <IoIosGitNetwork />,
   },
   {
     name: "Subscription",
-    logo: "",
+    logo: <BsCreditCard2Back />,
   },
   {
     name: "Analytics",
-    logo: "",
+    logo: <GrAnalytics />,
   },
   {
     name: "Books",
-    logo: "",
+    logo: <BsFillJournalBookmarkFill />,
     active: "active",
   },
   {
     name: "Setting ",
-    logo: "",
+    logo: <IoMdSettings />,
   },
   {
     name: "News Letter",
-    logo: "",
+    logo: <BiNews />,
   },
 ];
 
@@ -64,12 +75,16 @@ const Navbar = () => {
             alt="SoladLadder"
           />
         </NavLink>
-        <p>Logout</p>
+        <div className="logoutBtn">
+          <BiLogOut />
+          <p>Logout</p>
+        </div>
       </section>
       <section className="lower-nav">
         {dataItem.map((item, index) => (
-          <div key={index}>
-            <img src="" alt="" />
+          <div className="navitem" key={index}>
+            {/* <img src="" alt="" /> */}
+            {item.logo}
             <NavLink
               style={NavLinkStyle}
               to={item.name.toLowerCase() === "books" ? '/' : item.name.toLowerCase()}

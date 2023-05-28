@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import './style.css'
-// import axios from 'axios'
+import axios from 'axios'
 
-const ActionBar = ({ model, setModel, setShowFilterItem, setProductList, ProductList, allProduct }) => {
+const ActionBar = ({ model, setModel, setShowFilterItem, setProductList, ProductList, allProduct, setLoaderState }) => {
 
     const [isLow, setIsLow] = useState(false)
     // const [allProduct] = useState(ProductList);
@@ -24,8 +24,16 @@ const ActionBar = ({ model, setModel, setShowFilterItem, setProductList, Product
     // }
 
     const setEveryProduct = async () => {
-        setProductList(allProduct)
-        setIsLow(!isLow)
+        try {
+            setIsLow(!isLow)
+            setLoaderState(true)
+            const response = await axios.get("https://solarladder.onrender.com/api/products")
+            setProductList(response.data)
+            setLoaderState(false)
+        } catch (error) {
+            console.log(error)
+        }
+        // setProductList(allProduct)
     }
 
     const handleClick = () => {
@@ -34,9 +42,6 @@ const ActionBar = ({ model, setModel, setShowFilterItem, setProductList, Product
         } else if (isLow) {
             setEveryProduct()
         }
-
-        // { !isLow && getLowStockItem() }
-        // { isLow && setEveryProduct() }
     }
 
     return (

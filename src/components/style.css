@@ -25,6 +25,20 @@
 .active{
     color: blue;
 }
+.navitem{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.logoutBtn{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+.logoutBtn p{
+    font-weight: 600;
+}
 
 
 /* navbar end  */

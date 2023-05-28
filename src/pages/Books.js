@@ -126,7 +126,7 @@ const Books = () => {
     return (
         <div>
             <ActionBar model={showAIModel} setModel={setAIShowModel} setShowFilterItem={setShowFilterItem} setProductList={setProductList} ProductList={ProductList}
-                allProduct={allProduct}
+                allProduct={allProduct} setLoaderState={setLoaderState}
             />
             <div className='bookContainer'>
                 {loaderState && <Loder />}
