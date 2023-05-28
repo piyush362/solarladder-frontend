@@ -117,6 +117,16 @@
     border: .5px solid rgba(115, 115, 115, 0.573);
     cursor: pointer;
 }
+.delBtnTrue{
+    color: rgb(255, 255, 255);
+    background-color: red;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    border: .5px solid rgba(115, 115, 115, 0.573);
+    cursor: pointer;
+}
 .lowstockBtn{
     padding: 8px 20px;
     border-radius: 5px;

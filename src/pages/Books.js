@@ -10,6 +10,7 @@ import EditItem from '../components/Model/EditItem';
 import DeleteModel from '../components/Model/DeleteModel';
 import AdujstStockModel from '../components/Model/AdujstStockModel';
 import AdjustStockBtn from '../components/AdjustStockBtn';
+import DeleteMultiple from '../components/Model/DeleteMultiple';
 
 const Books = () => {
     const [ProductList, setProductList] = useState([]);
@@ -22,6 +23,8 @@ const Books = () => {
     const [deletingModel, setDeletingModel] = useState(false)
     const [editId, setEditId] = useState("");
     const [adjuststockModel, setAdjustStockModel] = useState(false)
+    const [selectedItemRows, setSelectedItemRows] = useState([])
+    const [multiDeleteModel, setMultiDeleteModel] = useState(false)
     const [adjustData, setAdjustData] = useState({
         itemName: '',
         itemCode: '',
@@ -47,6 +50,12 @@ const Books = () => {
         } catch (error) {
             console.log(error)
         }
+    }
+
+    const handleselectedRow = (selectedRows) => {
+        // console.log(selectedRows.selectedRows)
+        setSelectedItemRows(selectedRows.selectedRows)
+        // console.log(selectedItemRows)
     }
 
     const coloums = [
@@ -125,8 +134,16 @@ const Books = () => {
 
     return (
         <div>
-            <ActionBar model={showAIModel} setModel={setAIShowModel} setShowFilterItem={setShowFilterItem} setProductList={setProductList} ProductList={ProductList}
-                allProduct={allProduct} setLoaderState={setLoaderState}
+            <ActionBar
+                model={showAIModel}
+                setModel={setAIShowModel}
+                setShowFilterItem={setShowFilterItem}
+                setProductList={setProductList}
+                ProductList={ProductList}
+                allProduct={allProduct}
+                setLoaderState={setLoaderState}
+                selectedItemRows={selectedItemRows}
+                setMultiDeleteModel={setMultiDeleteModel}
             />
             <div className='bookContainer'>
                 {loaderState && <Loder />}
@@ -138,6 +155,7 @@ const Books = () => {
                     fixedHeader
                     fixedHeaderScrollHeight='380px'
                     selectableRows
+                    onSelectedRowsChange={(seletedRows) => handleselectedRow(seletedRows)}
                     selectableRowsHighlight
                     highlightOnHover
                     dense
@@ -160,6 +178,13 @@ const Books = () => {
                     setProductList={setProductList}
                     adjustData={adjustData}
                 />}
+
+            {multiDeleteModel && <DeleteMultiple
+                selectedItemRows={selectedItemRows}
+                setMultiDeleteModel={setMultiDeleteModel}
+                setProductList={setProductList}
+                setSelectedItemRows={setSelectedItemRows}
+            />}
         </div>
     )
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './style.css'
 import axios from 'axios'
 
-const ActionBar = ({ model, setModel, setShowFilterItem, setProductList, ProductList, allProduct, setLoaderState }) => {
+const ActionBar = ({ model, setModel, setShowFilterItem, setProductList, ProductList, allProduct, setLoaderState, selectedItemRows, setMultiDeleteModel }) => {
 
     const [isLow, setIsLow] = useState(false)
     // const [allProduct] = useState(ProductList);
@@ -49,10 +49,15 @@ const ActionBar = ({ model, setModel, setShowFilterItem, setProductList, Product
             {!isLow && <p className="lowstockBtn"
                 onClick={() => handleClick()}
             >SHOW LOW STOCK</p>}
+
             {isLow && <p className="lowstockBtnCross"
                 onClick={() => handleClick()}
             >SHOW ALL STOCK </p>}
-            <p className='delBtn'>- DELETE SELECTED</p>
+
+            {selectedItemRows.length === 0 && <p className='delBtn'>- DELETE SELECTED</p>}
+
+            {selectedItemRows.length !== 0 && <p className='delBtnTrue' onClick={() => setMultiDeleteModel(true)}>- DELETE SELECTED </p>}
+
             <p className='atiBtn' onClick={() => setModel(!model)}>+ ADD TO INVENTORY</p>
         </div>
     )
