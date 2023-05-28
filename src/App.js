@@ -4,7 +4,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 // import Dashboard from './pages/Dashboard'
-// import NoMatch from './pages/NoMatch'
+import NoMatch from './pages/NoMatch'
 import Books from './pages/Books'
 
 const App = () => {
@@ -12,9 +12,9 @@ const App = () => {
     <Router>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Books />} />
         <Route path='/books' element={<Books />} />
-        {/* <Route path='*' element={<NoMatch />} /> */}
+        <Route path='*' element={<NoMatch />} />
       </Routes>
     </Router>
   )

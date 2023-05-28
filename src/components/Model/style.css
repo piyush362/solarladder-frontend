@@ -150,3 +150,113 @@
 .isDeleting{
     color: red;
 }
+
+
+/* // delete model */
+.delteModelContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    background-color: white;
+    padding: 20px;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.delteModelContainer > p{
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.283);
+}
+.deleteModelBtn{
+    display: flex;
+    gap: 50px;
+}
+.deleteModelBtn > p{
+    padding: 10px 20px;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+}
+.deleteModelBtnSure{
+    background-color: rgba(255, 0, 0, 0.63);
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.deleteModelBtnCancel{
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+/* /// adjust stock model */
+/*  */
+
+.adjuststockContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    background-color: white;
+    padding: 20px;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.adjustStockHeading{
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.283);
+}
+.adjustInput{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 10px;
+}
+.adjustInput input {
+    padding: 8px;
+    border: 1px solid rgba(128, 128, 128, 0.667);
+    border-radius: 5px;
+}
+.adjustactionBtn{
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+}
+.adjustactionBtn p{
+    width: 80px;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+.adjustSaveBtn{
+    background-color: green;
+    color: white;
+}
+.stockupdatingContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    background-color: rgb(29, 155, 15);
+    color: white;
+    padding: 20px;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

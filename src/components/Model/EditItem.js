@@ -56,10 +56,9 @@ const EditItem = ({ model, setModel, setProductList, itemId, setItemId }) => {
     try {
       setDeleting(true);
       const url = `https://solarladder.onrender.com/api/product/${tempId}`;
-      //   const response =
       await axios.delete(url, itemData);
 
-      //reser form data
+      //reset form data
       setItemData({
         itemName: "",
         itemCode: "",
@@ -83,15 +82,6 @@ const EditItem = ({ model, setModel, setProductList, itemId, setItemId }) => {
           console.log(error);
         }
       }, 2000);
-
-      //   try {
-      //     const response = await axios.get(
-      //       "https://solarladder.onrender.com/api/products"
-      //     );
-      //     setProductList(response.data);
-      //   } catch (error) {
-      //     console.log(error);
-      //   }
     } catch (error) {
       console.log(error.message);
     }

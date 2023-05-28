@@ -68,12 +68,12 @@ const Navbar = () => {
       </section>
       <section className="lower-nav">
         {dataItem.map((item, index) => (
-          <div>
+          <div key={index}>
             <img src="" alt="" />
             <NavLink
               style={NavLinkStyle}
-              to={item.name.toLowerCase()}
-              className={item.active && "active"}
+              to={item.name.toLowerCase() === "books" ? '/' : item.name.toLowerCase()}
+              className={item.active ? "active" : ""}
             >
               {item.name}
             </NavLink>

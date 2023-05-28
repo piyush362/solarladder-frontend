@@ -42,6 +42,9 @@
 }
 .alert-logo-plane{
     width: 20px;
+    padding: 5px;
+    margin-right: 9px;
+    border-radius: 20px;
 }
 .edit-logo{
     width: 20px;
@@ -53,7 +56,17 @@
     width: 20px;
     padding: 5px;
     border-radius: 20px;
-
+}
+.delete-logo{
+    width: 20px;
+    padding: 5px;
+    border-radius: 20px;
+}
+.delete-logo:hover{
+    background-color: rgba(217, 33, 33, 0.568);
+    width: 20px;
+    padding: 5px;
+    border-radius: 20px;
 }
 
 
@@ -115,3 +128,13 @@
 }
 
 /* action bar end */
+
+.adjustStockBtn{
+    background-color: rgb(41, 162, 210);
+    color: white;
+    padding: 7px 10px;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 500;
+    cursor: pointer;
+}

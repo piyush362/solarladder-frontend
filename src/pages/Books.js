@@ -7,6 +7,9 @@ import ActionBar from '../components/ActionBar';
 import Loder from '../components/Loder/Loder';
 import AddItem from '../components/Model/AddItem';
 import EditItem from '../components/Model/EditItem';
+import DeleteModel from '../components/Model/DeleteModel';
+import AdujstStockModel from '../components/Model/AdujstStockModel';
+import AdjustStockBtn from '../components/AdjustStockBtn';
 
 const Books = () => {
     const [ProductList, setProductList] = useState([]);
@@ -16,7 +19,14 @@ const Books = () => {
     const [showEditModel, setEditShowModel] = useState(false);
     const [showFilterItem, setShowFilterItem] = useState(false)
     const [allProduct, setAllProduct] = useState([])
+    const [deletingModel, setDeletingModel] = useState(false)
     const [editId, setEditId] = useState("");
+    const [adjuststockModel, setAdjustStockModel] = useState(false)
+    const [adjustData, setAdjustData] = useState({
+        itemName: '',
+        itemCode: '',
+        currentStock: ''
+    })
 
     const getLowStockItem = () => {
         const filterData = ProductList.filter((item) => item.stockQuantity < item.lowStock);
@@ -59,7 +69,7 @@ const Books = () => {
         },
         {
             name: "Stock on Hold",
-            selector: (row) => row.stockOnHold
+            selector: (row) => 0
         },
         {
             name: "Stock Value",
@@ -82,12 +92,27 @@ const Books = () => {
                     model={showEditModel}
                     setModel={setEditShowModel}
                     setProductList={setProductList}
+                    setDeletingModel={setDeletingModel}
+                    stockQuantity={row.stockQuantity}
                 />)
             }
         },
         {
             name: '',
-            cell: () => <p className='adjustStockBtn'>ADJUST STOCK</p>
+            cell: (row) => {
+                return (
+                    <AdjustStockBtn
+                        setAdjustStockModel={setAdjustStockModel}
+                        setEditId={setEditId}
+                        itemId={row._id}
+                        itemName={row.itemName}
+                        itemCode={row.itemCode}
+                        adjustData={adjustData}
+                        setAdjustData={setAdjustData}
+                        stockQuantity={row.stockQuantity}
+                    />
+                )
+            }
         },
 
     ]
@@ -119,8 +144,22 @@ const Books = () => {
                     pointerOnHover
                 />}
             </div>
+            {/* //model */}
             {showAIModel && <AddItem model={showAIModel} setModel={setAIShowModel} setProductList={setProductList} />}
+
             {showEditModel && <EditItem model={showEditModel} setModel={setEditShowModel} setProductList={setProductList} itemId={editId} setItemId={setEditId} />}
+
+            {deletingModel && <DeleteModel setDeletingModel={setDeletingModel} itemId={editId} setItemId={setEditId} setProductList={setProductList} />}
+
+            {adjuststockModel &&
+                <AdujstStockModel
+                    setAdjustStockModel={setAdjustStockModel}
+                    itemId={editId}
+                    editId={editId}
+                    setEditId={setEditId}
+                    setProductList={setProductList}
+                    adjustData={adjustData}
+                />}
         </div>
     )
 }
