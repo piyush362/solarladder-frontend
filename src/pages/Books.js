@@ -82,7 +82,7 @@ const Books = () => {
         {
             name: '',
             cell: (row) => {
-                const isLowStock = row.stockQuantity < row.lowStock
+                const isLowStock = Number(row.stockQuantity) < Number(row.lowStock)
                 const id = row._id
                 // setEditId(id)
                 return (<ItemActionBtn
