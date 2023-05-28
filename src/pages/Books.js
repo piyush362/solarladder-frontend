@@ -107,7 +107,7 @@ const Books = () => {
                 {loaderState && <Loder />}
                 {!loaderState && <DataTable
                     columns={coloums}
-                    data={ProductList.reverse()}
+                    data={ProductList}
                     title={'Inventery'}
                     pagination
                     fixedHeader
