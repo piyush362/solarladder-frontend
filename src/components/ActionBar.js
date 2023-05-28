@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './style.css'
-import axios from 'axios'
+// import axios from 'axios'
 
 const ActionBar = ({ model, setModel, setShowFilterItem, setProductList, ProductList, allProduct }) => {
 
