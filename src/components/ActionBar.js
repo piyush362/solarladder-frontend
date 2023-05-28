@@ -6,7 +6,7 @@ const ActionBar = ({ model, setModel, setShowFilterItem, setProductList, Product
 
     const [isLow, setIsLow] = useState(false)
     // const [allProduct] = useState(ProductList);
-    const [lowBtn, setLowBtn] = useState('lowbtn')
+    // const [lowBtn, setLowBtn] = useState('lowbtn')
 
 
     const getLowStockItem = () => {
@@ -14,14 +14,14 @@ const ActionBar = ({ model, setModel, setShowFilterItem, setProductList, Product
         setProductList(filterData);
         setIsLow(true)
     }
-    const getProduct = async () => {
-        try {
-            const response = await axios.get("https://solarladder.onrender.com/api/products")
-            setProductList(response.data)
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    // const getProduct = async () => {
+    //     try {
+    //         const response = await axios.get("https://solarladder.onrender.com/api/products")
+    //         setProductList(response.data)
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
 
     const setEveryProduct = async () => {
         setProductList(allProduct)

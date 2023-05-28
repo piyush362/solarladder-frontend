@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./style.css";
 import axios from "axios";
 import Loder from "../Loder/Loder";
@@ -8,7 +8,7 @@ const EditItem = ({ model, setModel, setProductList, itemId, setItemId }) => {
   const [isScuccess, setSuccess] = useState(false);
   const [uploadStatus, setUplaodStatus] = useState(false);
   const [loader, setLoader] = useState(true);
-  const [tempId, setTempId] = useState(itemId);
+  const [tempId] = useState(itemId);
   const [deleteModel, setDeleteModel] = useState(false);
   const [isDeleting, setDeleting] = useState(false);
   const [itemData, setItemData] = useState({
@@ -46,7 +46,7 @@ const EditItem = ({ model, setModel, setProductList, itemId, setItemId }) => {
     }
   };
 
-  if (itemId != "") {
+  if (itemId !== "") {
     getProduct();
   }
 
@@ -56,7 +56,8 @@ const EditItem = ({ model, setModel, setProductList, itemId, setItemId }) => {
     try {
       setDeleting(true);
       const url = `https://solarladder.onrender.com/api/product/${tempId}`;
-      const response = await axios.delete(url, itemData);
+      //   const response =
+      await axios.delete(url, itemData);
 
       //reser form data
       setItemData({
