@@ -10,7 +10,7 @@ const ActionBar = ({ model, setModel, setShowFilterItem, setProductList, Product
 
 
     const getLowStockItem = () => {
-        const filterData = ProductList.filter((item) => item.stockQuantity < item.lowStock);
+        const filterData = ProductList.filter((item) => Number(item.stockQuantity) < Number(item.lowStock));
         setProductList(filterData);
         setIsLow(true)
     }
