@@ -10,7 +10,7 @@ const AddItem = ({ model, setModel, setProductList }) => {
     itemName: "",
     itemCode: "",
     itemDescription: "",
-    categeory: "",
+    categeory: "Panel",
     stockQuantity: "",
     lowStock: "",
     purchaseValue: "",
@@ -83,6 +83,7 @@ const AddItem = ({ model, setModel, setProductList }) => {
           setProductList(response.data);
         } catch (error) {
           console.log(error);
+          setModel(!model);
         }
       }, 2000);
       // setModel(!model);
@@ -90,6 +91,7 @@ const AddItem = ({ model, setModel, setProductList }) => {
     } catch (error) {
       // Handle errors
       console.error(error);
+      setModel(!model);
     }
   };
 
@@ -126,7 +128,7 @@ const AddItem = ({ model, setModel, setProductList }) => {
               <p className="HeadingAi">General Details</p>
               <label for="image">Image</label>
               <input type="file" name="image" onChange={handleInputChange} />
-              <label for="itemName">Item Name</label>
+              <label for="itemName">Item Name *</label>
               <input
                 type="text"
                 name="itemName"
@@ -134,7 +136,7 @@ const AddItem = ({ model, setModel, setProductList }) => {
                 value={itemData.itemName}
                 onChange={handleInputChange}
               />
-              <label for="itemCode">Item Code</label>
+              <label for="itemCode">Item Code *</label>
               <input
                 type="text"
                 name="itemCode"
@@ -150,14 +152,15 @@ const AddItem = ({ model, setModel, setProductList }) => {
                 value={itemData.itemDescription}
                 onChange={handleInputChange}
               />
-              <label for="categeory">Categeory</label>
+              <label for="categeory">Categeory *</label>
               <select
                 id="categeory"
                 name="categeory"
                 value={itemData.categeory}
                 onChange={handleInputChange}
+                defaultValue="Panel"
               >
-                <option value="">Select Categeory</option>
+                <option value="Panel">Select Categeory</option>
                 <option value="Panel">Panel</option>
                 <option value="PVC Material">PVC Material</option>
                 <option value="Invertor">Invertor</option>
@@ -165,7 +168,7 @@ const AddItem = ({ model, setModel, setProductList }) => {
             </div>
             <div className="stockDetails">
               <p className="HeadingAi">Stock Details</p>
-              <label for="stockQuantity">Stock Quantity {"(PCS)"}</label>
+              <label for="stockQuantity">Stock Quantity * {"(PCS)"}</label>
               <input
                 type="text"
                 name="stockQuantity"
@@ -181,7 +184,7 @@ const AddItem = ({ model, setModel, setProductList }) => {
                 value={itemData.lowStock}
                 onChange={handleInputChange}
               />
-              <label for="purchaseValue">Purchase Value {"(₹)"}</label>
+              <label for="purchaseValue">Purchase Value * {"(₹)"}</label>
               <input
                 type="text"
                 name="purchaseValue"

@@ -35,6 +35,7 @@ const DeleteMultiple = ({ setMultiDeleteModel, selectedItemRows, setProductList,
             );
             setSelectedItemRows([])
             setProductList(response.data);
+            window.location.reload();
         } catch (error) {
             console.log(error);
         }
