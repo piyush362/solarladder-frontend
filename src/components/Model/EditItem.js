@@ -197,7 +197,7 @@ const EditItem = ({ model, setModel, setProductList, itemId, setItemId }) => {
                 <p className="HeadingAi">General Details</p>
                 <label for="image">Image</label>
                 <input type="file" name="image" onChange={handleInputChange} />
-                <label for="itemName">Item Name</label>
+                <label for="itemName">Item Name *</label>
                 <input
                   type="text"
                   name="itemName"
@@ -205,7 +205,7 @@ const EditItem = ({ model, setModel, setProductList, itemId, setItemId }) => {
                   value={itemData.itemName}
                   onChange={handleInputChange}
                 />
-                <label for="itemCode">Item Code</label>
+                <label for="itemCode">Item Code *</label>
                 <input
                   type="text"
                   name="itemCode"
@@ -221,7 +221,7 @@ const EditItem = ({ model, setModel, setProductList, itemId, setItemId }) => {
                   value={itemData.itemDescription}
                   onChange={handleInputChange}
                 />
-                <label for="categeory">Categeory</label>
+                <label for="categeory">Categeory *</label>
                 <select
                   id="categeory"
                   name="categeory"
@@ -236,7 +236,7 @@ const EditItem = ({ model, setModel, setProductList, itemId, setItemId }) => {
               </div>
               <div className="stockDetails">
                 <p className="HeadingAi">Stock Details</p>
-                <label for="stockQuantity">Stock Quantity {"(PCS)"}</label>
+                <label for="stockQuantity">Stock Quantity * {"(PCS)"}</label>
                 <input
                   type="text"
                   name="stockQuantity"
@@ -252,7 +252,7 @@ const EditItem = ({ model, setModel, setProductList, itemId, setItemId }) => {
                   value={itemData.lowStock}
                   onChange={handleInputChange}
                 />
-                <label for="purchaseValue">Purchase Value {"(₹)"}</label>
+                <label for="purchaseValue">Purchase Value * {"(₹)"}</label>
                 <input
                   type="text"
                   name="purchaseValue"
