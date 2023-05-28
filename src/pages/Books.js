@@ -23,7 +23,10 @@ const Books = () => {
         setLowStockItem(filterData);
         console.log(lowStockItem)
     }
-    { showFilterItem && getLowStockItem() }
+    if (showFilterItem) {
+        getLowStockItem();
+    }
+    // { showFilterItem && getLowStockItem() }
 
     const getProduct = async () => {
         try {

@@ -29,8 +29,14 @@ const ActionBar = ({ model, setModel, setShowFilterItem, setProductList, Product
     }
 
     const handleClick = () => {
-        { !isLow && getLowStockItem() }
-        { isLow && setEveryProduct() }
+        if (!isLow) {
+            getLowStockItem()
+        } else if (isLow) {
+            setEveryProduct()
+        }
+
+        // { !isLow && getLowStockItem() }
+        // { isLow && setEveryProduct() }
     }
 
     return (
