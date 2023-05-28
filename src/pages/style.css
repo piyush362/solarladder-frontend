@@ -1,0 +1,21 @@
+.bookContainer{
+    margin: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.228);
+    border-radius: 5px;
+}
+.adjustStockBtn{
+    background-color: rgb(41, 162, 210);
+    color: white;
+    padding: 7px 10px;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.homeContainer1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+}

@@ -1,0 +1,152 @@
+.modelBackground{
+    background-color: rgba(0, 0, 0, 0.148);
+    position: absolute;
+    width: 100vw;
+    height: 900px;
+    top: 0px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modelContainer{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 850px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.addItemContainer{
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    z-index: 100;
+    width: 60%;
+    border-radius: 10px;
+    
+}
+.crossBtn{
+    width: 10px;
+    padding: 2px 5px 2px 50px;
+    font-weight: bolder;
+}
+.crossBtn:hover{
+    color: red;
+}
+.aiTop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+    margin: 0;
+}
+.aiTop > p{
+    font-weight: 600;
+    cursor: pointer;
+}
+.aiContent{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 20px 10px;
+    border: 1px solid rgba(128, 128, 128, 0.299);
+    border-radius: 5px;
+}
+.generalDetails{
+    display: flex;
+    flex-direction: column;
+    padding-right: 10px;
+    gap: 20px;
+    width: 50%;
+}
+.stockDetails{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    width: 50%;
+    gap: 20px;
+}
+.HeadingAi{
+    font-weight: 500;
+}
+.aiContent input , select {
+    padding: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.395);
+    border-radius: 5px;
+}
+.aiContent label{
+    color: rgba(128, 128, 128, 0.833);
+    padding: 0;
+    margin: 0;
+}
+.deletebtn{
+    background-color: rgba(255, 0, 0, 0.721);
+    color: white;
+}
+.aiActionBtn{
+    display: flex;
+    gap: 50px;
+    padding: 5px;
+}
+.aiActionBtn p {
+    padding: 7px 15px;
+    width: 100px;
+    text-align: center;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.347);
+    cursor: pointer;
+}
+.savebtn{
+    background-color: rgb(11, 123, 167);
+    color: white;
+    
+}
+
+.uploadinContainer{
+    width: 300px;
+    background-color: rgb(189, 255, 153);
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.deletingContainer{
+    width: 300px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+.deleteItemBtn{
+    display: flex;
+    justify-content: space-between;
+}
+.deleteItemBtn p{
+    padding: 7px 10px;
+    width: 100px;
+    text-align: center;
+}
+.surebtn{
+    background-color: rgba(255, 0, 0, 0.847);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.cancelbtn{
+    background-color: rgba(172, 255, 47, 0.34);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.isDeleting{
+    color: red;
+}

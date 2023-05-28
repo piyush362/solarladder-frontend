@@ -1,21 +1,40 @@
 import React, { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component';
-// import allproduct from '../data.js'
 import axios from 'axios';
+import './style.css'
+import ItemActionBtn from '../components/ItemActionBtn';
+import ActionBar from '../components/ActionBar';
+import Loder from '../components/Loder/Loder';
+import AddItem from '../components/Model/AddItem';
+import EditItem from '../components/Model/EditItem';
 
 const Books = () => {
-    // const [pending, setPending] = React.useState(false);
     const [ProductList, setProductList] = useState([]);
+    const [lowStockItem, setLowStockItem] = useState([]);
+    const [loaderState, setLoaderState] = useState(true);
+    const [showAIModel, setAIShowModel] = useState(false);
+    const [showEditModel, setEditShowModel] = useState(false);
+    const [showFilterItem, setShowFilterItem] = useState(false)
+    const [allProduct, setAllProduct] = useState([])
+    const [editId, setEditId] = useState("");
+
+    const getLowStockItem = () => {
+        const filterData = ProductList.filter((item) => item.stockQuantity < item.lowStock);
+        setLowStockItem(filterData);
+        console.log(lowStockItem)
+    }
+    { showFilterItem && getLowStockItem() }
 
     const getProduct = async () => {
         try {
             const response = await axios.get("https://solarladder.onrender.com/api/products")
             setProductList(response.data)
+            setAllProduct(response.data)
+            setLoaderState(false)
         } catch (error) {
             console.log(error)
         }
     }
-
 
     const coloums = [
         {
@@ -37,23 +56,35 @@ const Books = () => {
         },
         {
             name: "Stock on Hold",
-            selector: (row) => row.stockHold
+            selector: (row) => row.stockOnHold
         },
         {
             name: "Stock Value",
-            selector: (row) => row.stockHold
+            selector: (row) => `₹${Number(row.purchaseValue) * Number(row.stockQuantity)}`
         },
         {
             name: "Purchase Price",
-            selector: (row) => row.stockHold
+            selector: (row) => `₹${row.purchaseValue}`
         },
         {
             name: '',
-            cell: () => <p>/</p>
+            cell: (row) => {
+                const isLowStock = row.stockQuantity < row.lowStock
+                const id = row._id
+                // setEditId(id)
+                return (<ItemActionBtn
+                    setEditId={setEditId}
+                    itemId={id}
+                    showLowStock={isLowStock}
+                    model={showEditModel}
+                    setModel={setEditShowModel}
+                    setProductList={setProductList}
+                />)
+            }
         },
         {
             name: '',
-            cell: () => <button style={{ fontSize: 10, padding: 5, color: 'blue' }}>ADJUST STOCK</button>
+            cell: () => <p className='adjustStockBtn'>ADJUST STOCK</p>
         },
 
     ]
@@ -65,29 +96,28 @@ const Books = () => {
 
 
     return (
-        <div
-            style={{
-                padding: 10,
-                borderWidth: 1,
-                borderColor: 'gray'
-            }}
-        >
-            <DataTable
-                columns={coloums}
-                data={ProductList}
-                pagination
-                title={'Books'}
-                fixedHeader
-                fixedHeaderScrollHeight='380px'
-                selectableRows
-                selectableRowsHighlight
-                highlightOnHover
-                actions={
-                    <button>export</button>
-                }
-                subHeader
-                pointerOnHover
+        <div>
+            <ActionBar model={showAIModel} setModel={setAIShowModel} setShowFilterItem={setShowFilterItem} setProductList={setProductList} ProductList={ProductList}
+                allProduct={allProduct}
             />
+            <div className='bookContainer'>
+                {loaderState && <Loder />}
+                {!loaderState && <DataTable
+                    columns={coloums}
+                    data={ProductList.reverse()}
+                    title={'Inventery'}
+                    pagination
+                    fixedHeader
+                    fixedHeaderScrollHeight='380px'
+                    selectableRows
+                    selectableRowsHighlight
+                    highlightOnHover
+                    dense
+                    pointerOnHover
+                />}
+            </div>
+            {showAIModel && <AddItem model={showAIModel} setModel={setAIShowModel} setProductList={setProductList} />}
+            {showEditModel && <EditItem model={showEditModel} setModel={setEditShowModel} setProductList={setProductList} itemId={editId} setItemId={setEditId} />}
         </div>
     )
 }

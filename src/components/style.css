@@ -28,3 +28,90 @@
 
 
 /* navbar end  */
+/* ================================== */
+
+/* ItemActionBtn */
+.ItemActionBtnContainer{
+    width: 100px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.alert-logo{
+    width: 20px;
+}
+.alert-logo-plane{
+    width: 20px;
+}
+.edit-logo{
+    width: 20px;
+    padding: 5px;
+    border-radius: 20px;
+}
+.edit-logo:hover{
+    background-color: white;
+    width: 20px;
+    padding: 5px;
+    border-radius: 20px;
+
+}
+
+
+/* ItemActionBtn end */
+/* ========================= */
+
+/* Action bar */
+
+.actionBarContainer{
+    margin-top: 20px;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-end;
+    
+}
+
+.atiBtn{
+    background-color: rgb(11, 123, 167);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.delBtn{
+    color: rgb(115, 115, 115);
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    border: .5px solid rgba(115, 115, 115, 0.573);
+    cursor: pointer;
+}
+.lowstockBtn{
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(167, 16, 11);
+    border: 1px solid rgb( 167,16, 11) ;
+    cursor: pointer;
+}
+.lowstockBtnCross{
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: rgb(11, 167, 45);
+    color: white;
+    border: 1px solid rgb(11, 167, 45) ;
+    cursor: pointer;
+}
+.lowstockBtnCross span{
+    color: red;
+    font-weight: bolder;
+}
+
+/* action bar end */
