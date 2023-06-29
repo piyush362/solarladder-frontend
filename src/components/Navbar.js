@@ -69,11 +69,10 @@ const Navbar = () => {
     <nav className="navcontainer">
       <section className="upper-nav">
         <NavLink style={NavLinkStyle} to={"/"}>
-          <img
+          {/* <img
             className="logo"
-            src="https://www.solarladder.com/logo.png"
-            alt="SoladLadder"
-          />
+          /> */}
+          <h3>INVENTORY MANAGEMENT SYSTEM</h3>
         </NavLink>
         <div className="logoutBtn">
           <BiLogOut />
